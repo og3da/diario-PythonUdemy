@@ -1,6 +1,9 @@
 """
 # GERADOR DE CPF'S VALIDOS
 - primeiro é necessario importar o módulo random para gerar valores aleatorios
+- logo, convertemos para string para poder iterar
+- em "Loop do CPF" geramos os 2 digitos validos de acordo com o calculo de cpf valido
+- assim geramos um CPF valido :)
 """
 from random import randint
 numero = str(randint(100000000, 999999999))
