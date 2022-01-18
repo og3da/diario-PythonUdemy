@@ -5,7 +5,7 @@ funções: append, insert, pop, del, clear, extend...
 min, max
 range
 """
-"""
+
 palavra='arroba'
 #          0        1   2   3   4
 alfabeto=['arroba','b','c','d','e']
@@ -21,7 +21,6 @@ print(alfabeto[1::]) #exibindo a partir do indice 1 ate o final
 print(alfabeto[1:4]) #exibindo apenas do 1-3
 print(alfabeto[::2]) #exibindo de 2 em 2 elementos (passo 2)
 
-"""
 # manipulando listas
 l1=[1,2,3]
 l2=[4,5,6]
