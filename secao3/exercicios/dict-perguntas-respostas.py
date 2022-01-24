@@ -18,19 +18,20 @@ perguntas = {
         'resposta certa':'a',
     },
 }
-
 acertos=0
-for pk, pv in perguntas.items():
+for pk, pv in perguntas.items(): # pergunta-key, pergunta-value
     print(f'{pk}: {pv["pergunta"]}')
     print("Escolha uma das opções abaixo: ")
-    for rk, rv in pv['respostas'].items():
-        print(f'{rk}: {rv}')
 
+    for rk, rv in pv['respostas'].items(): # resposta-key, resposta-value
+        print(f'{rk}: {rv}') # exibe todas respostas possiveis
     resposta_user=input("Digite sua resposta: ")
+
     if resposta_user == pv['resposta certa']: 
         print("Parabens vc acertou!")
         acertos+=1
     else:
         print("Você errou")
     print()
+
 print(f'acertos= {acertos}')
