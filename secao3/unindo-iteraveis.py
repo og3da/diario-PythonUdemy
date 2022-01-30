@@ -14,10 +14,10 @@ from itertools import zip_longest # para usar o zip_longest é necessario import
 cidades=['Sao Paulo','Belo Horizonte','Salvador','Monte Belo','Outra']
 estados=['SP','MG','BA'] # os dados devem estar na ordem
 
-# .zip() - juntando as listas, retorna gerador. As cidades que nao foram preenchidas em 'estados' serao descartadas
+# .zip() - juntando as listas, retorna iterador. As cidades que nao foram preenchidas em 'estados' serao descartadas
 cidades_estados = zip(estados, cidades)
 print("zip> ",list(cidades_estados))
 
-# .zip() - juntando as listas, retorna None para as cidades que nao foram preenchidas em 'estados' ou um valor padrao em fillvalue
+# .zip_longest() - juntando as listas, retorna None para as cidades que nao foram preenchidas em 'estados' ou um valor padrao em fillvalue
 cidades_estados = zip_longest(estados, cidades, fillvalue="Estado")
 print("zip_longest> ",list(cidades_estados))
