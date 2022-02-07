@@ -14,7 +14,8 @@ def fala_oi():
 
 fala_oi = master(fala_oi) # funcao decorada
 
-@master # decorador
+@master # decorador, nesse caso nao vai mais haver a necessidade de criar uma variavel como a 'fala_oi = master(fala_oi)' pois ja estamos 
+# informando o decorador!!!
 def fala_oi():
     print('Oi')
 
