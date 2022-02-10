@@ -1,8 +1,6 @@
 from random import randint
-numero = str(randint(10000000000000, 99999999999999))
 
 def validar(cn):
-    try:
         while True:
             # variaveis
             cnpj=cn
@@ -19,7 +17,6 @@ def validar(cn):
                 digito1=digito1
             else:
                 digito1=0
-            print(f'digito 1 = {digito1}')
 
             # segundo digito 
             int_list_cnpj.append(digito1)
@@ -31,7 +28,7 @@ def validar(cn):
                 digito2=digito2
             else:
                 digito2=0
-            print(f'digito 2 = {digito2}')
+
             int_list_cnpj.append(digito2)
 
             # adicionando digitos a lista para comparar ao original 
@@ -39,11 +36,11 @@ def validar(cn):
             cnpj_lista.append(str(digito2))
             cnpj_formatado=''.join(cnpj_lista)
             if cnpj_lista==cnpj_to_confirm:
-                #print(f'CNPJ validado: {cnpj_formatado[0:3]}.{cnpj_formatado[2:5]}.{cnpj_formatado[5:8]}/{cnpj_formatado[8:12]}-{cnpj_formatado[12::]}')
-                return cnpj_formatado
+                print(f'CNPJ gerado: {cnpj_formatado[0:3]}.{cnpj_formatado[2:5]}.{cnpj_formatado[5:8]}/{cnpj_formatado[8:12]}-{cnpj_formatado[12::]}')
+                break
             else:
-                pass
-    except:
-        print("ocorreu um erro inesperado")
+                continue
 
-print(validar(numero))
+numero = str(randint(10000000000000, 99999999999999))
+numero_formatado=str(f'{numero[0:2]}.{numero[2:5]}.{numero[5:8]}/{numero[8:12]}-{numero[12:]}') # formatando o nº gerado p/CNPJ
+print(validar(numero_formatado))
