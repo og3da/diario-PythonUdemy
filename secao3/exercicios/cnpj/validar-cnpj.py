@@ -58,7 +58,7 @@ int_list_cnpj.append(digito2)
 cnpj_lista.append(str(digito1))
 cnpj_lista.append(str(digito2))
 cnpj_formatado=''.join(cnpj_lista)
-print(f'CNPJ validado: {cnpj_formatado[0:3]}.{cnpj_formatado[2:5]}.{cnpj_formatado[5:8]}/{cnpj_formatado[8:12]}-{cnpj_formatado[12::]}')
+print(f'CNPJ validado: {cnpj_formatado[0:2]}.{cnpj_formatado[2:5]}.{cnpj_formatado[5:8]}/{cnpj_formatado[8:12]}-{cnpj_formatado[12:]}')
 print('-'*20)
 if cnpj_lista==cnpj_to_confirm:
     print("CNPJ VALIDO")
