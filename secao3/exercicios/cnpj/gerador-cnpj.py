@@ -1,16 +1,14 @@
 from random import randint
 
-def validar(cn):
+def gerar(cn):
         while True:
             # variaveis
-            cnpj=cn
-            cnpj_to_confirm=[num for num in cnpj if num.isdigit()] # para confirmar posteriormente
-            cnpj_lista=[num for num in cnpj[0:-3] if num.isdigit()] # capturando numeros ate antes dos digitos
-            int_list_cnpj = list(map(int, cnpj_lista)) # convertendo para inteiro
+            cnpj=[x for x in cn]
+            int_cnpj = list(map(int, cnpj)) # convertendo para inteiro
 
             # primeiro digito 
             mult=[5,4,3,2,9,8,7,6,5,4,3,2] #mult=['5','4','3','2','9','8','7','6','5','4','3','2']
-            digito1=[int_list_cnpj[i]*mult[i] for i in range(len(int_list_cnpj))] # multiplicando cada valor do cnpj por 'mult' p/gerar digito1
+            digito1=[int_cnpj[i]*mult[i] for i in range(len(int_cnpj))] # multiplicando cada valor do cnpj por 'mult' p/gerar digito1
             soma=sum(digito1) # somando valores da lista
             digito1= 11 - (soma % 11)
             if digito1<=9:
@@ -19,9 +17,9 @@ def validar(cn):
                 digito1=0
 
             # segundo digito 
-            int_list_cnpj.append(digito1)
+            int_cnpj.append(digito1)
             mult=[6,5,4,3,2,9,8,7,6,5,4,3,2,digito1] 
-            digito2=[int_list_cnpj[i]*mult[i] for i in range(len(int_list_cnpj))] 
+            digito2=[int_cnpj[i]*mult[i] for i in range(len(int_cnpj))] 
             soma=sum(digito2) 
             digito2= 11 - (soma % 11)
             if digito2<=9:
@@ -29,18 +27,12 @@ def validar(cn):
             else:
                 digito2=0
 
-            int_list_cnpj.append(digito2)
-
             # adicionando digitos a lista para comparar ao original 
-            cnpj_lista.append(str(digito1))
-            cnpj_lista.append(str(digito2))
-            cnpj_formatado=''.join(cnpj_lista)
-            if cnpj_lista==cnpj_to_confirm:
-                print(f'CNPJ gerado: {cnpj_formatado[0:3]}.{cnpj_formatado[2:5]}.{cnpj_formatado[5:8]}/{cnpj_formatado[8:12]}-{cnpj_formatado[12::]}')
-                break
-            else:
-                continue
+            cnpj.append(str(digito1))
+            cnpj.append(str(digito2))
+            cnpj_formatado=''.join(cnpj)
+            print(f'CNPJ gerado: {cnpj_formatado[0:2]}.{cnpj_formatado[2:5]}.{cnpj_formatado[5:8]}/{cnpj_formatado[8:12]}-{cnpj_formatado[12:]}')
+            break
 
-numero = str(randint(10000000000000, 99999999999999))
-numero_formatado=str(f'{numero[0:2]}.{numero[2:5]}.{numero[5:8]}/{numero[8:12]}-{numero[12:]}') # formatando o nº gerado p/CNPJ
-print(validar(numero_formatado))
+numero = str(randint(100000000000, 999999999999))
+gerar(numero)
